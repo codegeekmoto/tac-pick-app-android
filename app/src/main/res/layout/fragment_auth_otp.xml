@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/auth_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_fragment" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_border_teal_opac"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gotham_bold"
+                    android:gravity="center_horizontal"
+                    android:paddingStart="30dp"
+                    android:paddingLeft="30dp"
+                    android:paddingEnd="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingBottom="30dp"
+                    android:text="Enter the 6 digit code we sent to your Pick App account email."
+                    android:textColor="@color/light" />
+
+                <EditText
+                    android:id="@+id/code"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/et_line"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/gotham_bold"
+                    android:hint="Enter OTP Code"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textAlignment="center"
+                    android:textColor="@color/light"
+                    android:textColorHint="@color/lightGray"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_next"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/ripple_gray"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/gotham_bold"
+                    android:gravity="center_horizontal"
+                    android:text="or"
+                    android:textColor="@color/lightGray"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_resend_code"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/ripple_success"
+                    android:fontFamily="@font/gotham_bold"
+                    android:text="Resend Code"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

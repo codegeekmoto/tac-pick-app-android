@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_navigation"
+    app:startDestination="@id/auth_get_started">
+
+    <fragment
+        android:id="@+id/auth_get_started"
+        android:name="com.tac.pickapp.ui.auth.GetStartedFragment"
+        android:label="Get Started"
+        tools:layout="@layout/fragment_auth_get_started" >
+<!--        <action-->
+<!--            android:id="@+id/action_auth_get_started_to_auth_login"-->
+<!--            app:destination="@id/auth_login" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/auth_login"
+        android:name="com.tac.pickapp.ui.auth.LoginFragment"
+        tools:layout="@layout/fragment_auth_login" >
+<!--        <action-->
+<!--            android:id="@+id/action_auth_login_to_auth_reset_password"-->
+<!--            app:destination="@id/auth_reset_password" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/auth_register"
+        android:name="com.tac.pickapp.ui.auth.RegisterFragment"
+        android:label="Get Started"
+        tools:layout="@layout/fragment_auth_register" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/auth_reset_password"-->
+<!--        android:name="com.pickapp.ui.auth.ResetPasswordFragment"-->
+<!--        android:label="Reset Password"-->
+<!--        tools:layout="@layout/fragment_auth_reset_password" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_auth_reset_password_to_auth_otp"-->
+<!--            app:destination="@id/auth_otp" />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/auth_otp"-->
+<!--        android:name="com.pickapp.ui.auth.OTPFragment"-->
+<!--        android:label="Enter OTP"-->
+<!--        tools:layout="@layout/fragment_auth_otp" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_auth_otp_to_auth_change_password"-->
+<!--            app:destination="@id/auth_change_password" />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/auth_change_password"-->
+<!--        android:name="com.pickapp.ui.auth.ChangePasswordFragment"-->
+<!--        android:label="Reset Password"-->
+<!--        tools:layout="@layout/fragment_auth_change_password" />-->
+
+
+</navigation>

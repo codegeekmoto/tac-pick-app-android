@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_fresh_daily">
+
+    <fragment
+        android:id="@+id/nav_fresh_daily"
+        android:name="com.tac.pickapp.ui.customer.freshdaily.FreshDailyFragment"
+        android:label="Fresh Daily"
+        tools:layout="@layout/fragment_fresh_daily" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.tac.pickapp.ui.customer.account.AccountFragment"
+        android:label="My Account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_nav_account_to_nav_update_account"
+            app:destination="@id/nav_update_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_my_order"
+        android:name="com.tac.pickapp.ui.customer.myorders.OrderFragment"
+        android:label="My Orders"
+        tools:layout="@layout/fragment_order" />
+
+    <fragment
+        android:id="@+id/nav_store_location"
+        android:name="com.tac.pickapp.ui.customer.store.StoreFragment"
+        android:label="Store Location"
+        tools:layout="@layout/fragment_store" />
+
+    <fragment
+        android:id="@+id/nav_update_account"
+        android:name="com.tac.pickapp.ui.customer.account.UpdateAccountFragment"
+        android:label=""
+        tools:layout="@layout/fragment_update_account" />
+
+</navigation>
