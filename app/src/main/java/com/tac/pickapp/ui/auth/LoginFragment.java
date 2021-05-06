@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
         binding.toolbar.title.setText(mUserType+ " Login");
         binding.toolbar.btnBack.setOnClickListener(v -> getActivity().onBackPressed());
 
-        binding.email.setText("tac.pickapp@gmail.com");
+        binding.email.setText("sell@mail.com");
         binding.password.setText("123123");
 
         initForm();
@@ -68,6 +68,8 @@ public class LoginFragment extends Fragment {
                 } else {
                     startActivity(new Intent(getActivity(), RiderActivity.class));
                 }
+
+                getActivity().finish();
             }
 
             @Override

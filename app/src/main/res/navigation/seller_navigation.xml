@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_store">
+
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="com.tac.pickapp.ui.seller.store.StoreFragment"
+        android:label="My Store"
+        tools:layout="@layout/fragment_store" >
+        <action
+            android:id="@+id/action_nav_store_to_nav_create_store"
+            app:destination="@id/nav_create_store" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_create_store"
+        android:name="com.tac.pickapp.ui.seller.store.CreateStoreFragment"
+        android:label="Set up new store"
+        tools:layout="@layout/fragment_create_store" />
+
+    <fragment
+        android:id="@+id/nav_add_product"
+        android:name="com.tac.pickapp.ui.seller.store.AddProductFragment"
+        android:label="Set up new store"
+        tools:layout="@layout/fragment_add_product" />
+
+</navigation>

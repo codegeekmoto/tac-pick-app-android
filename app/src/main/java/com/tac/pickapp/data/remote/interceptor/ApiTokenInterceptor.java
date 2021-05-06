@@ -1,5 +1,7 @@
 package com.tac.pickapp.data.remote.interceptor;
 
+import android.util.Log;
+
 import com.tac.pickapp.data.local.Preferences;
 import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.util.Prefs;
@@ -26,6 +28,8 @@ public class ApiTokenInterceptor implements Interceptor {
         Request.Builder builder = chain.request().newBuilder();
         builder.addHeader("Authorization", "Bearer "+ pref.getObject(Prefs.USER, User.class).getApiToken());
         builder.addHeader("Accept", "application/json");
+
+        Log.d("apis", "api token intercept: "+ pref.getObject(Prefs.USER, User.class).getApiToken());
 
         return chain.proceed(builder.build());
     }

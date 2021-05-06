@@ -25,6 +25,10 @@ public class Data {
     @Expose
     private PasswordReset passwordReset;
 
+    @SerializedName("store")
+    @Expose
+    private Store store;
+
     public PasswordReset getPasswordReset() {
         return passwordReset;
     }
@@ -65,4 +69,11 @@ public class Data {
         this.errors = errors;
     }
 
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

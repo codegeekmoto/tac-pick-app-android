@@ -33,7 +33,7 @@ public class RegisterFragment extends Fragment {
 
     private FragmentAuthRegisterBinding binding;
 
-    private String mUserType;
+    private String mUserType = "customer";
 
     @Nullable
     @Override

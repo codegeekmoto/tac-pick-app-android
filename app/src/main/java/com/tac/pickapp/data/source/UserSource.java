@@ -2,32 +2,23 @@ package com.tac.pickapp.data.source;
 
 import com.tac.pickapp.data.local.Preferences;
 import com.tac.pickapp.data.remote.RemoteApi;
-import com.tac.pickapp.data.remote.dto.Data;
 import com.tac.pickapp.data.remote.dto.Response;
 import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.util.Prefs;
-import com.tac.pickapp.util.logging.Logger;
-import com.tac.pickapp.util.logging.LoggerFactory;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.functions.Function;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class UserSource {
+public class UserSource extends DataSource {
 
-    private Logger LOG = LoggerFactory.getLogger(UserSource.class);
-
-    private RemoteApi remoteApi;
-    private Preferences prefs;
-
-    public UserSource(RemoteApi remoteApi, Preferences prefs) {
-        this.remoteApi = remoteApi;
-        this.prefs = prefs;
+    public UserSource(RemoteApi remoteApi, Preferences prefApi) {
+        super(remoteApi, prefApi);
     }
 
     public boolean isLoggedIn() {
-        return prefs.getObject(Prefs.USER, User.class) != null;
+        return prefsApi.getObject(Prefs.USER, User.class) != null;
     }
 
     public Observable<Boolean> register(User user) {
@@ -63,7 +54,7 @@ public class UserSource {
         return remoteApi.auth().login(body).map(new Function<Response, Boolean>() {
             @Override
             public Boolean apply(Response response) throws Throwable {
-                prefs.setJson(Prefs.USER, response.getData().getUser());
+                prefsApi.setJson(Prefs.USER, response.getData().getUser());
                 return response.getStatus() == null ? true : false;
             }
         });
