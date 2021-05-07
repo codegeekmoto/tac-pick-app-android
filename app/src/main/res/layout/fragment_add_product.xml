@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawablePadding="10dp"
-                android:hint="Store Name"
+                android:hint="Name"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black" />
 
@@ -76,7 +76,7 @@
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="DTI Number"
+                android:hint="Price"
                 android:inputType="text"
                 android:maxLines="3"
                 android:textColor="@color/black" />
@@ -100,34 +100,34 @@
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Business Permit"
+                android:hint="Number of Stock"
                 android:inputType="text"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/lightGray"
-            app:boxBackgroundColor="@color/transparent"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
-            app:hintTextColor="@color/lightGray"
-            app:startIconTint="#ffffff">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/address_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:textColorHint="@color/lightGray"-->
+<!--            app:boxBackgroundColor="@color/transparent"-->
+<!--            app:errorEnabled="true"-->
+<!--            app:errorTextColor="@color/red"-->
+<!--            app:hintTextColor="@color/lightGray"-->
+<!--            app:startIconTint="#ffffff">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address"
-                style="@style/TextInputEditText"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Store Address"
-                android:inputType="text"
-                android:textColor="@color/black" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/address"-->
+<!--                style="@style/TextInputEditText"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:hint="Store Address"-->
+<!--                android:inputType="text"-->
+<!--                android:textColor="@color/black" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <Button
             android:id="@+id/btn_save"

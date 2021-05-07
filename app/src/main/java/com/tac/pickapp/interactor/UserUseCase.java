@@ -17,6 +17,14 @@ public class UserUseCase extends BaseUseCase {
     public UserUseCase() {
     }
 
+    public User get() {
+        return repository.user().getUser();
+    }
+
+    public void logout() {
+        repository.user().logout();
+    }
+
     public Register register(User user) {
         Register register = new Register(user);
         threads.add(register);

@@ -5,61 +5,63 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.tac.pickapp.R;
 import com.tac.pickapp.app.PickApp;
 import com.tac.pickapp.data.remote.dto.Store;
-import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.databinding.FragmentCreateStoreBinding;
 import com.tac.pickapp.ui.util.Helper;
 import com.tac.pickapp.ui.util.ResultObserver;
-import com.tac.pickapp.ui.viewmodel.CreateStoreVMFactory;
+import com.tac.pickapp.ui.util.StoreListener;
+import com.tac.pickapp.ui.viewmodel.StoreVMFactory;
 import com.tac.pickapp.util.Constants;
 
 import javax.inject.Inject;
 
-public class CreateStoreFragment extends Fragment {
+public class SetupStoreFragment extends Fragment {
 
     @Inject
-    CreateStoreVMFactory vmFactory;
-    private CreateStoreVM createStoreVM;
+    StoreVMFactory vmFactory;
+    private StoreVM storeVM;
 
     private FragmentCreateStoreBinding binding;
+    private static StoreListener.OnSetupStore setupStoreListener;
 
-    public CreateStoreFragment() {
+    public SetupStoreFragment() {
         // Required empty public constructor
     }
 
-    public static CreateStoreFragment newInstance() {
-        return new CreateStoreFragment();
+    public static SetupStoreFragment newInstance(StoreListener.OnSetupStore listener) {
+        setupStoreListener = listener;
+        return new SetupStoreFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         PickApp.getComponent().inject(this);
-        createStoreVM = new ViewModelProvider(this, vmFactory).get(CreateStoreVM.class);
+        storeVM = new ViewModelProvider(this, vmFactory).get(StoreVM.class);
         binding = FragmentCreateStoreBinding.inflate(inflater, container, false);
 
+        String greetings = "Welcome "+ storeVM.getUser().getFirstName() +"! \n To get started please setup your store.";
+        binding.greet.setText(greetings);
+
         initForm();
-        setVMObserver();
+        setSetupStoreVMObserver();
 
         return binding.getRoot();
     }
 
-    private void setVMObserver() {
-        createStoreVM.getCreateStoreResult().observe(getViewLifecycleOwner(), new ResultObserver<Boolean>() {
+    private void setSetupStoreVMObserver() {
+        storeVM.getCreateStoreResult().observe(getViewLifecycleOwner(), new ResultObserver<Boolean>() {
             @Override
             public void onSuccess(Boolean aBoolean) {
                 clearForm();
-                Helper.dialogAlert(getContext(), "", "New store successfully save.", (dialog, which) -> {
-                    getActivity().onBackPressed();
+                Helper.dialogAlert(getContext(), "", "Congratulations! Your new store has been setup.", (dialog, which) -> {
+                    setupStoreListener.onStoreSetupDone();
                 });
             }
 
@@ -101,7 +103,7 @@ public class CreateStoreFragment extends Fragment {
 
                 enabledForm(false);
 
-                createStoreVM.saveStore(store);
+                storeVM.saveStore(store);
             }
         });
     }

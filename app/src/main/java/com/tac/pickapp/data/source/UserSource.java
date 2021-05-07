@@ -17,8 +17,13 @@ public class UserSource extends DataSource {
         super(remoteApi, prefApi);
     }
 
-    public boolean isLoggedIn() {
-        return prefsApi.getObject(Prefs.USER, User.class) != null;
+    public User getUser() {
+        return prefsApi.getObject(Prefs.USER, User.class);
+    }
+
+    public void logout() {
+        prefsApi.setString(Prefs.USER, null);
+        prefsApi.setString(Prefs.STORE, null);
     }
 
     public Observable<Boolean> register(User user) {

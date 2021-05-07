@@ -13,7 +13,6 @@
                         android:color="@color/colorPrimary" />
 
                     <solid android:color="#00FFFFFF" />
-
                     <padding android:left="3dp"
                         android:right="3dp"
                         android:top="3dp"

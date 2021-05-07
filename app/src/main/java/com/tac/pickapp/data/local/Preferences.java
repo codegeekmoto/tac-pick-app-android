@@ -32,4 +32,8 @@ public class Preferences {
         return new Gson().fromJson(preferences.getString(key, ""), objClass);
     }
 
+    public void clearAll() {
+        preferences.edit().clear().apply();
+    }
+
 }

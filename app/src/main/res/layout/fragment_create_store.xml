@@ -4,147 +4,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.seller.store.CreateStoreFragment">
+    tools:context=".ui.seller.store.SetupStoreFragment">
 
-    <LinearLayout
-        android:id="@+id/form"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/store_name_layout"
+        <LinearLayout
+            android:id="@+id/form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/lightGray"
-            app:boxBackgroundColor="@color/transparent"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
-            app:hintTextColor="@color/lightGray"
-            app:startIconTint="#ffffff">
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/store_name"
-                style="@style/TextInputEditText"
+            <TextView
+                android:id="@+id/greet"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:hint="Store Name"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
+                android:fontFamily="@font/gotham_bold"
+                android:gravity="center"
+                android:textSize="18sp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/description_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/lightGray"
-            app:boxBackgroundColor="@color/transparent"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
-            app:hintTextColor="@color/lightGray"
-            app:startIconTint="#ffffff">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/description"
-                style="@style/TextInputEditText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/store_name_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Description"
-                android:inputType="text"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/lightGray"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/lightGray"
+                app:startIconTint="#ffffff">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/store_name"
+                    style="@style/TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawablePadding="10dp"
+                    android:hint="Store Name"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black" />
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:id="@+id/dti_layout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:textColorHint="@color/lightGray"-->
-<!--            app:boxBackgroundColor="@color/transparent"-->
-<!--            app:errorEnabled="true"-->
-<!--            app:errorTextColor="@color/red"-->
-<!--            app:hintTextColor="@color/lightGray"-->
-<!--            app:startIconTint="#ffffff">-->
+            </com.google.android.material.textfield.TextInputLayout>
 
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:id="@+id/dti"-->
-<!--                style="@style/TextInputEditText"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:hint="DTI Number"-->
-<!--                android:inputType="text"-->
-<!--                android:maxLines="3"-->
-<!--                android:textColor="@color/black" />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/business_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/lightGray"
-            app:boxBackgroundColor="@color/transparent"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
-            app:hintTextColor="@color/lightGray"
-            app:startIconTint="#ffffff">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business"
-                style="@style/TextInputEditText"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Business Permit"
-                android:inputType="text"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/lightGray"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/lightGray"
+                app:startIconTint="#ffffff">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description"
+                    style="@style/TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:textColor="@color/black" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textColorHint="@color/lightGray"
-            app:boxBackgroundColor="@color/transparent"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/red"
-            app:hintTextColor="@color/lightGray"
-            app:startIconTint="#ffffff">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address"
-                style="@style/TextInputEditText"
+            <!--        <com.google.android.material.textfield.TextInputLayout-->
+            <!--            android:id="@+id/dti_layout"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="5dp"-->
+            <!--            android:textColorHint="@color/lightGray"-->
+            <!--            app:boxBackgroundColor="@color/transparent"-->
+            <!--            app:errorEnabled="true"-->
+            <!--            app:errorTextColor="@color/red"-->
+            <!--            app:hintTextColor="@color/lightGray"-->
+            <!--            app:startIconTint="#ffffff">-->
+
+            <!--            <com.google.android.material.textfield.TextInputEditText-->
+            <!--                android:id="@+id/dti"-->
+            <!--                style="@style/TextInputEditText"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:hint="DTI Number"-->
+            <!--                android:inputType="text"-->
+            <!--                android:maxLines="3"-->
+            <!--                android:textColor="@color/black" />-->
+
+            <!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/business_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Store Address"
-                android:inputType="text"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/lightGray"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/lightGray"
+                app:startIconTint="#ffffff">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/business"
+                    style="@style/TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Business Permit"
+                    android:inputType="text"
+                    android:textColor="@color/black" />
 
-        <Button
-            android:id="@+id/btn_save"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/ripple_success"
-            android:fontFamily="@font/gotham_bold"
-            android:text="Save"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColorHint="@color/lightGray"
+                app:boxBackgroundColor="@color/transparent"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/red"
+                app:hintTextColor="@color/lightGray"
+                app:startIconTint="#ffffff">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address"
+                    style="@style/TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Store Address"
+                    android:inputType="text"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_save"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/ripple_success"
+                android:fontFamily="@font/gotham_bold"
+                android:text="Create Store"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/progress"

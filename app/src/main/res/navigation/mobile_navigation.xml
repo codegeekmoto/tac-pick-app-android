@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_account"
-        android:name="com.tac.pickapp.ui.customer.account.AccountFragment"
+        android:name="com.tac.pickapp.ui.account.AccountFragment"
         android:label="My Account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -31,11 +31,11 @@
         android:id="@+id/nav_store_location"
         android:name="com.tac.pickapp.ui.customer.store.StoreFragment"
         android:label="Store Location"
-        tools:layout="@layout/fragment_store" />
+        tools:layout="@layout/fragment_store_location" />
 
     <fragment
         android:id="@+id/nav_update_account"
-        android:name="com.tac.pickapp.ui.customer.account.UpdateAccountFragment"
+        android:name="com.tac.pickapp.ui.account.UpdateAccountFragment"
         android:label=""
         tools:layout="@layout/fragment_update_account" />
 

@@ -45,6 +45,10 @@ public class User {
     @Expose
     private String apiToken;
 
+    @SerializedName("store")
+    @Expose
+    private Store store;
+
     public String getApiToken() {
         return apiToken;
     }
@@ -144,4 +148,11 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

@@ -1,14 +1,14 @@
 package com.tac.pickapp.ui.viewmodel;
 
-import com.tac.pickapp.data.Repository;
+import com.tac.pickapp.interactor.UseCase;
 import com.tac.pickapp.ui.welcome.SplashViewModel;
 
 import javax.inject.Inject;
 
 public class SplashVMFactory extends VMFactory<SplashViewModel> {
 
-    @Inject
-    Repository repo;
+   @Inject
+    UseCase useCase;
 
     @Inject
     public SplashVMFactory() {}
@@ -20,6 +20,6 @@ public class SplashVMFactory extends VMFactory<SplashViewModel> {
 
     @Override
     protected SplashViewModel resolveVM() {
-        return new SplashViewModel(repo);
+        return new SplashViewModel(useCase);
     }
 }

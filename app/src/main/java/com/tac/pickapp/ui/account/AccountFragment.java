@@ -1,4 +1,4 @@
-package com.tac.pickapp.ui.customer.account;
+package com.tac.pickapp.ui.account;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -10,25 +10,32 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.tac.pickapp.R;
 import com.tac.pickapp.app.PickApp;
-import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.databinding.FragmentAccountBinding;
 import com.tac.pickapp.ui.auth.AuthActivity;
+import com.tac.pickapp.ui.viewmodel.AccountVMFactory;
+
+import javax.inject.Inject;
 
 public class AccountFragment extends Fragment {
 
-
-
     public final static String UPDATE_ACCOUNT = "UPDATE_ACCOUNT";
+
+    @Inject
+    AccountVMFactory vmFactory;
+    private AccountVM accountVM;
 
     private FragmentAccountBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        PickApp.getComponent().inject(this);
+        accountVM = new ViewModelProvider(this, vmFactory).get(AccountVM.class);
         binding = FragmentAccountBinding.inflate(inflater, container, false);
 
         binding.btnEmail.setOnClickListener(v -> {
@@ -51,7 +58,7 @@ public class AccountFragment extends Fragment {
             new AlertDialog.Builder(getContext())
                     .setMessage("Are you sure you want to logout your account?")
                     .setPositiveButton("YES", (dialog, which) -> {
-                        //PickApp.getInstance().logout();
+                        accountVM.logout();
                         startActivity(new Intent(getActivity(), AuthActivity.class));
                         getActivity().finish();
                     })

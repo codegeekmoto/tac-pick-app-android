@@ -10,8 +10,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.tac.pickapp.R;
 import com.tac.pickapp.app.PickApp;
+import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.data.source.UserSource;
 import com.tac.pickapp.ui.auth.AuthActivity;
+import com.tac.pickapp.ui.customer.CustomerActivity;
+import com.tac.pickapp.ui.rider.RiderActivity;
+import com.tac.pickapp.ui.seller.SellerActivity;
 import com.tac.pickapp.ui.viewmodel.SplashVMFactory;
 import com.tac.pickapp.util.logging.Logger;
 import com.tac.pickapp.util.logging.LoggerFactory;
@@ -35,20 +39,27 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         PickApp.getComponent().inject(this);
         vModel = new ViewModelProvider(this, vmFactory).get(SplashViewModel.class);
-
         setContentView(R.layout.activity_splash);
 
-        if (vModel.isLoggedIn()) {
-            LOG.debug("Logged In");
+        User user = vModel.getUser();
+        Class<?> nextAct;
+
+        if (user != null) {
+            if (user.getType().toLowerCase().equals("customer")) {
+                nextAct = CustomerActivity.class;
+            } else if (user.getType().toLowerCase().equals("seller")) {
+                nextAct = SellerActivity.class;
+            } else {
+                nextAct = RiderActivity.class;
+            }
         } else {
-            LOG.debug("Not logged In");
+            nextAct = AuthActivity.class;
         }
 
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, AuthActivity.class));
-                        //vModel.isLoggedIn() ? AuthActivity.class : CustomerActivity.class));
+                startActivity(new Intent(SplashActivity.this, nextAct));
             }
         }, 1000);
     }

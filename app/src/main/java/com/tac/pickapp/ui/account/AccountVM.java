@@ -1,16 +1,16 @@
-package com.tac.pickapp.ui.welcome;
+package com.tac.pickapp.ui.account;
 
 import com.tac.pickapp.interactor.UseCase;
 import com.tac.pickapp.ui.viewmodel.BaseVM;
 
-public class SplashViewModel extends BaseVM {
+public class AccountVM extends BaseVM {
 
-    public SplashViewModel(UseCase useCase) {
+    public AccountVM(UseCase useCase) {
         super(useCase);
     }
 
     @Override
     protected Class<?> resolveLoggerName() {
-        return SplashViewModel.class;
+        return AccountVM.class;
     }
 }

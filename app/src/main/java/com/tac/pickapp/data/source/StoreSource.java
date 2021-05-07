@@ -4,6 +4,7 @@ import com.tac.pickapp.data.local.Preferences;
 import com.tac.pickapp.data.remote.RemoteApi;
 import com.tac.pickapp.data.remote.dto.Response;
 import com.tac.pickapp.data.remote.dto.Store;
+import com.tac.pickapp.data.remote.dto.User;
 import com.tac.pickapp.util.Prefs;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -30,8 +31,10 @@ public class StoreSource extends DataSource {
         return remoteApi.store().create(body).map(new Function<Response, Boolean>() {
             @Override
             public Boolean apply(Response response) throws Throwable {
-                prefsApi.setJson(Prefs.STORE, response.getData().getStore());
-                return response.getStatus() == null ? true : false;
+                User user = prefsApi.getObject(Prefs.USER, User.class);
+                user.setStore(response.getData().getStore());
+                prefsApi.setJson(Prefs.USER, user);
+                return true;
             }
         });
     }
