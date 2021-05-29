@@ -9,13 +9,33 @@
         android:id="@+id/nav_store"
         android:name="com.tac.pickapp.ui.seller.store.StoreFragment"
         android:label="My Store"
-        tools:layout="@layout/fragment_store" />
+        tools:layout="@layout/fragment_store" >
+        <action
+            android:id="@+id/action_nav_store_to_nav_add_product"
+            app:destination="@id/nav_add_product" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_add_product"
-        android:name="com.tac.pickapp.ui.seller.store.AddProductFragment"
-        android:label="Add Product"
-        tools:layout="@layout/fragment_add_product" />
+        android:name="com.tac.pickapp.ui.seller.product.ProductFormFragment"
+        android:label="Product Details"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_nav_add_product_to_nav_product_cover"
+            app:destination="@id/nav_product_cover" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_product_cover"
+        android:name="com.tac.pickapp.ui.seller.product.ProductCoverFragment"
+        android:label="Product Cover"
+        tools:layout="@layout/fragment_product_cover" >
+        <action
+            android:id="@+id/action_nav_product_cover_to_nav_store"
+            app:destination="@id/nav_store"
+            app:popUpTo="@id/nav_store"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_account"

@@ -1,5 +1,6 @@
 package com.tac.pickapp.data;
 
+import com.tac.pickapp.data.source.ProductSource;
 import com.tac.pickapp.data.source.StoreSource;
 import com.tac.pickapp.data.source.UserSource;
 
@@ -14,6 +15,9 @@ public class Repository {
     StoreSource store;
 
     @Inject
+    ProductSource product;
+
+    @Inject
     public Repository() {}
 
     public UserSource user() {
@@ -21,4 +25,8 @@ public class Repository {
     }
 
     public StoreSource store() { return  store; }
+
+    public ProductSource product() {
+        return product;
+    }
 }

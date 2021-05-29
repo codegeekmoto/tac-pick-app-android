@@ -13,6 +13,9 @@ public class UseCase {
     StoreUseCase store;
 
     @Inject
+    ProductUseCase product;
+
+    @Inject
     public UseCase() {
     }
 
@@ -21,6 +24,10 @@ public class UseCase {
     }
 
     public StoreUseCase store() { return store; }
+
+    public ProductUseCase product() {
+        return product;
+    }
 
     public void dispose() {
         user.dispose();

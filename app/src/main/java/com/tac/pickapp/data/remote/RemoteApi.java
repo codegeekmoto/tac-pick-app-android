@@ -1,6 +1,7 @@
 package com.tac.pickapp.data.remote;
 
 import com.tac.pickapp.data.remote.api.AuthApi;
+import com.tac.pickapp.data.remote.api.ProductApi;
 import com.tac.pickapp.data.remote.api.StoreApi;
 import com.tac.pickapp.data.remote.api.UserApi;
 
@@ -23,4 +24,8 @@ public class RemoteApi {
     }
 
     public StoreApi store() { return retrofitService.getAuthenticated().create(StoreApi.class); }
+
+    public ProductApi product() {
+        return retrofitService.getAuthenticated().create(ProductApi.class);
+    }
 }

@@ -21,6 +21,10 @@ public class Response {
     @Expose
     private String message;
 
+    @SerializedName("url")
+    @Expose
+    private String imageUrl;
+
     public Data getData() {
         return data;
     }
@@ -51,5 +55,13 @@ public class Response {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.tac.pickapp.R;
 import com.tac.pickapp.app.PickApp;
 import com.tac.pickapp.databinding.FragmentStoreBinding;
+import com.tac.pickapp.ui.seller.product.MyProductFragment;
 import com.tac.pickapp.ui.util.StoreListener;
 import com.tac.pickapp.ui.viewmodel.StoreVMFactory;
 
@@ -42,6 +43,8 @@ public class StoreFragment extends Fragment implements StoreListener.OnSetupStor
         binding = FragmentStoreBinding.inflate(inflater, container, false);
 
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+
+
 
         if (storeVM.getUser().getStore() != null) {
             ft.replace(R.id.store_container, MyProductFragment.newInstance());

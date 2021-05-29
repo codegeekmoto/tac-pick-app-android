@@ -2,6 +2,7 @@ package com.tac.pickapp.app.dagger;
 
 import com.tac.pickapp.data.local.Preferences;
 import com.tac.pickapp.data.remote.RemoteApi;
+import com.tac.pickapp.data.source.ProductSource;
 import com.tac.pickapp.data.source.StoreSource;
 import com.tac.pickapp.data.source.UserSource;
 
@@ -23,5 +24,11 @@ public class DataSourceModule {
     @Singleton
     StoreSource providesStoreSource(RemoteApi remoteApi, Preferences preferences) {
         return new StoreSource(remoteApi, preferences);
+    }
+
+    @Provides
+    @Singleton
+    ProductSource providesProductSource(RemoteApi remoteApi, Preferences preferences) {
+        return new ProductSource(remoteApi, preferences);
     }
 }

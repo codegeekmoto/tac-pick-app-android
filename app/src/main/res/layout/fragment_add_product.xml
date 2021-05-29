@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.seller.store.AddProductFragment">
+    tools:context=".ui.seller.product.ProductFormFragment">
 
     <LinearLayout
         android:id="@+id/form"
@@ -13,8 +13,21 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Category"
+            android:textSize="12sp" />
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/et_line"
+            android:spinnerMode="dropdown" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/store_name_layout"
+            android:id="@+id/name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@color/lightGray"
@@ -25,7 +38,7 @@
             app:startIconTint="#ffffff">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/store_name"
+                android:id="@+id/name"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -60,7 +73,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/dti_layout"
+            android:id="@+id/price_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -72,19 +85,32 @@
             app:startIconTint="#ffffff">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/dti"
+                android:id="@+id/price"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Price"
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLines="3"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Quantity"
+            android:textSize="12sp" />
+        <Spinner
+            android:id="@+id/quantity"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/et_line"
+            android:spinnerMode="dropdown" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/business_layout"
+            android:id="@+id/num_of_stock_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -96,66 +122,28 @@
             app:startIconTint="#ffffff">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business"
+                android:id="@+id/num_of_stock"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Number of Stock"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:id="@+id/address_layout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:textColorHint="@color/lightGray"-->
-<!--            app:boxBackgroundColor="@color/transparent"-->
-<!--            app:errorEnabled="true"-->
-<!--            app:errorTextColor="@color/red"-->
-<!--            app:hintTextColor="@color/lightGray"-->
-<!--            app:startIconTint="#ffffff">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:id="@+id/address"-->
-<!--                style="@style/TextInputEditText"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:hint="Store Address"-->
-<!--                android:inputType="text"-->
-<!--                android:textColor="@color/black" />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
         <Button
-            android:id="@+id/btn_save"
+            android:id="@+id/btn_next"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/ripple_success"
             android:fontFamily="@font/gotham_bold"
-            android:text="Save"
+            android:text="Next"
             android:textAllCaps="false"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textColor="#ffffff" />
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:id="@+id/progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
 
 </FrameLayout>

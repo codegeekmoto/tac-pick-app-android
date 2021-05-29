@@ -5,15 +5,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class Product {
 
+    public static final String BUNDLE_KEY = "com.tac.pickapp.data.remote.dto.Product";
+    public static final String CREATE = "com.tac.pickapp.data.remote.dto.Product.create";
+    public static final String UPDATE= "com.tac.pickapp.data.remote.dto.Product.update";
+
+    public static final String SEA_FOOD = "Sea Food";
+    public static final String VEGETABLE = "Vegetable";
+    public static final String FRUIT = "Fruit";
+
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("store_id")
     @Expose
     private Integer storeId;
-    @SerializedName("category_id")
+    @SerializedName("category")
     @Expose
-    private Integer categoryId;
+    private String category;
     @SerializedName("name")
     @Expose
     private String name;
@@ -23,6 +31,12 @@ public class Product {
     @SerializedName("price")
     @Expose
     private String price;
+    @SerializedName("quantity")
+    @Expose
+    private String quantity;
+    @SerializedName("cover_url")
+    @Expose
+    private String coverUrl;
     @SerializedName("num_of_stock")
     @Expose
     private Integer numOfStock;
@@ -32,6 +46,8 @@ public class Product {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+
+    private String mode = "new";
 
     public Integer getId() {
         return id;
@@ -49,12 +65,12 @@ public class Product {
         this.storeId = storeId;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getName() {
@@ -103,5 +119,29 @@ public class Product {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 }
